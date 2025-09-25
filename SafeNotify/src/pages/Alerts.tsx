@@ -3,7 +3,7 @@ import { mockAlerts } from '../api/mockSuiApi';
 function Alerts() {
     return (
         <div>
-            <h1 className="text-2xl font-bold mb-4">SafeNotify</h1>
+            <h1 className="text-2xl font-bold mb-4">Alerts</h1>
             <div className="space-y-4">
                 {mockAlerts.map((alert) => (
                     <div key={alert.id} className="bg-red-100 p-4 rounded-lg shadow-md">

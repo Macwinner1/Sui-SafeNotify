@@ -1,4 +1,4 @@
- import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { connectWallet, mockScams } from '../api/mockSuiApi';
 import ScamCard from '../components/ScamCard';
@@ -12,7 +12,7 @@ function Home() {
 
     return (
         <div>
-            <h1 className="text-2xl font-bold mb-4 text-red-700">SafeNotify Dashboard</h1>
+            <h1 className="text-2xl font-bold mb-4 text-black">Dashboard</h1>
             <div className="mb-4">
                 {wallet ? (
                     <p>Connected: {wallet.address} (Balance: {wallet.balance} SUI)</p>
