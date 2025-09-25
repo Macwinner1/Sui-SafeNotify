@@ -1,32 +1,22 @@
-import { useEffect, useState } from 'react';
-import { connectWallet } from '../api/mockSuiApi';
+import { useAuth } from '../context/AuthContext'
 
 function Wallet() {
-    const [wallet, setWallet] = useState<{ address: string; balance: number } | null>(null);
-
-    useEffect(() => {
-        connectWallet().then(setWallet);
-    }, []);
+    const { walletAddress } = useAuth()
 
     return (
         <div>
             <h1 className="text-2xl font-bold mb-4">Wallet</h1>
-            {wallet ? (
+            {walletAddress ? (
                 <div className="bg-white p-6 rounded-lg shadow-md">
-                    <p><strong>Address:</strong> {wallet.address}</p>
-                    <p><strong>Balance:</strong> {wallet.balance} SUI</p>
+                    <p><strong>Address:</strong> {walletAddress}</p>
+                    <p><strong>Balance:</strong> Coming soon via Sui API</p>
                     <p className="mt-2">Recent Activity: <span className="text-gray-600">No recent transactions</span></p>
                 </div>
             ) : (
-                <button
-                    className="bg-blue-600 text-white px-4 py-2 rounded"
-                    onClick={() => connectWallet().then(setWallet)}
-                >
-                    Connect Wallet
-                </button>
+                <p className="text-gray-600">No wallet connected</p>
             )}
         </div>
-    );
+    )
 }
 
-export default Wallet;
+export default Wallet
